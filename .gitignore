@@ -1,0 +1,9 @@
+# Ignore composer files
+/vendor/
+
+# Ignore environment files
+.env
+
+# Ignore logs and caches
+/app/Logs/
+/app/Cache/

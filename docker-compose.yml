@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html:delegated
+    depends_on:
+      - database
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
